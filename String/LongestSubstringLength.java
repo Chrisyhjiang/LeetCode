@@ -17,6 +17,7 @@ public class LongestSubstringLength {
             end++;
         }
         return result;
+        // Time complexity O(2n) worst case, Space Complexity O(m) m is the size of the charset
     }
 	
 	public int lengthOfLongestSubstringOptimized(String s) {
@@ -51,5 +52,6 @@ public class LongestSubstringLength {
             longest = Math.max(temp, longest);
         }
         return longest;
+        // time complexity O(n) space complexity O(m)
     }
 }
