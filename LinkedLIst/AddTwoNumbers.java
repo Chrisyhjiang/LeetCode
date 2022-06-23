@@ -1,5 +1,3 @@
-package LeetCode.LinkedLIst;
-
 import java.math.BigInteger;
 
 public class AddTwoNumbers {

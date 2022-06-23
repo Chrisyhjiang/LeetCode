@@ -5,15 +5,18 @@ public class SearchRotatedSortedArray {
 	public static int search(int[] nums, int target) {
 		// search for the minimum of the array then do binary search on both the left and right
 		int min = searchForMin(nums);
-		int i = binSearch(0, min - 1, nums, target);
-        int j = binSearch(min, nums.length - 1, nums, target);
-		if(i != -1) {
-			return i;
-		}else if (j != -1) {
-			return j;
+		if(min != 0) {
+			if(nums[0] > target){
+				return binSearch(min, nums.length - 1, nums, target);
+			}else if(nums[0] < target) {
+				return binSearch(0, min - 1, nums, target);
+			}else {
+				return 0;
+			}	
 		}else {
-			return -1;
+			return binSearch(0, nums.length - 1, nums, target);
 		}
+		
     }
 	
 	public static int searchForMin(int[] nums) {
@@ -75,7 +78,7 @@ public class SearchRotatedSortedArray {
 	
 	public static void main(String[] args) {
 		int[] nums = {1,3};
-		int k = search(nums, 4);
+		int k = search(nums, 3);
 		System.out.println(k);
 	}
 
