@@ -113,9 +113,7 @@ public class SearchRotatedSortedArray {
 		return index;
 		
 	}
-	
-	
-	
+
 	public static void main(String[] args) {
 		int[] nums = {1,3};
 		int k = search2(nums, 3);
