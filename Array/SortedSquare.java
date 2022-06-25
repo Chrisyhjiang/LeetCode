@@ -1,4 +1,4 @@
-package LeetCode.Array;
+
 
 public class SortedSquare {
 	public static void main(String[] args) {

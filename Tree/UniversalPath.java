@@ -1,4 +1,3 @@
-package LeetCode.Tree;
 
 public class UniversalPath {
 	public class TreeNode {

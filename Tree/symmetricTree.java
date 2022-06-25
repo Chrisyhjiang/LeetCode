@@ -1,4 +1,4 @@
-package LeetCode.Tree;
+
 // https://leetcode.com/problems/symmetric-tree/submissions/
 public class symmetricTree {
 	public class TreeNode {
