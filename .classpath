@@ -16,5 +16,6 @@
 	<classpathentry kind="src" path="Sorting"/>
 	<classpathentry kind="src" path="LinkedLIst"/>
 	<classpathentry kind="src" path="DFS"/>
+	<classpathentry kind="src" path="DP"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
