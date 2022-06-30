@@ -32,15 +32,17 @@ public class RotateImage {
 		for(int i = 0; i < size + 1 / 2; i++) {
 			// i means how many layers there are;
 			// get a loop to switch the layers.
-			int length = size - 1 - 2 * i;
 			for(int j = i; j < size / 2; j++) {
-				int temp = matrix[size - 1 - j][i];
-                matrix[size - 1 - j][i] = matrix[size - 1 - i][size - j - 1];
-                matrix[size - 1 - i][size - j - 1] = matrix[j][size - 1 -i];
-                matrix[j][size - 1 - i] = matrix[i][j];
-                matrix[i][j] = temp;
+				int tl = matrix[i][j];
+				int tr = matrix[size - 1 - i][size - j - 1];
+				int bl = matrix[size - 1 - j][i];
+				int br = matrix[j][size - 1 -i];
+				
+                matrix[size - 1 - j][i] = tr;
+                matrix[size - 1 - i][size - j - 1] = br;
+                matrix[j][size - 1 - i] = tl;
+                matrix[i][j] = bl;
 			}
-			
 		}
     }
 }
