@@ -2,11 +2,8 @@
 public class FirstLastPos {
 
 	public static void main(String[] args) {
-		int[] arr = {2,2};
-		int[] res = searchRange(arr, 2);
-		for(int a: res) {
-			System.out.println(a);
-		}
+		
+		
 	}
 	
 	public static int[] searchRange(int[] nums, int target) {
@@ -15,12 +12,39 @@ public class FirstLastPos {
         	res[0] = -1;
         	res[1] = -1;
         }else {
-        	res[0] = binSearchLeft(0, nums.length - 1, target, nums);
-        	res[1] = binSearchRight(0, nums.length - 1, target, nums);
+        	res[0] = binSearch(0, nums.length - 1, target, nums, true);
+        	res[1] = binSearch(0, nums.length - 1, target, nums, false);
         }
-        
         return res;
     }
+	
+	public static int binSearch(int start, int end, int target, int[]nums, boolean isLeft) {
+		// modified binary search, if searching left and equals keep searching left, if 
+		// res = -1, then res = left. same case applies for right. 
+		int res = -1;
+		int mid = (start + end) / 2;
+		if(start > end) {
+			res = -1;
+		}else {
+			if(nums[mid] == target) {
+				if(isLeft) {
+					res = binSearch(start, mid - 1, target, nums, isLeft);
+				}else {
+					res = binSearch(mid + 1, end, target, nums, isLeft);
+				}
+				// if not found res is in the maximum positions
+				if(res == -1) {
+					res = mid;
+				}
+			}else if(nums[mid] < target) {
+				res = binSearch(mid + 1, end, target, nums, isLeft);
+			}else {
+				res = binSearch(start, mid - 1, target, nums, isLeft);
+			}
+		}
+		return res;
+		
+	}
 	
 	public static int binSearchRight(int start, int end, int target, int[]nums) {
 		int res = -1;
@@ -29,13 +53,8 @@ public class FirstLastPos {
 			res = -1;
 		}else {
 			if(nums[mid] == target) {
-				if(mid < nums.length - 1) {
-					if(nums[mid + 1] != target) {
-						res = mid;
-					}else {
-						res = binSearchRight(mid + 1, end, target, nums);
-					}
-				}else {
+				res = binSearchRight(mid + 1, end, target, nums);
+				if(res == -1) {
 					res = mid;
 				}
 			}else if(nums[mid] < target) {
@@ -53,13 +72,8 @@ public class FirstLastPos {
 			res = -1;
 		}else {
 			if(nums[mid] == target) {
-				if(mid > 0) {
-					if(nums[mid - 1] != target) {
-						res = mid;
-					}else {
-						res = binSearchLeft(start, mid - 1, target, nums);
-					}
-				}else {
+				res = binSearchLeft(start, mid - 1, target, nums);
+				if(res == -1) {
 					res = mid;
 				}
 			}else if(nums[mid] < target) {
@@ -70,5 +84,6 @@ public class FirstLastPos {
 		}
 		return res;
 	}
+	
 	
 }
