@@ -2,35 +2,27 @@ import java.util.*;
 public class peopleAware {
 	
 	public static void main(String[] args) {
-		int n = 684;
-		int delay = 18;
-		int forget = 496;
-		int res = peopleAwareOfSecret(n, delay, forget);
+		int n = 6;
+		int delay = 2;
+		int forget = 4;
+		int res = peopleAwareOfSecret2(n, delay, forget);
 		System.out.println(res);
 		
 	}
 	public static int peopleAwareOfSecret2(int n, int delay, int forget) {
-		
-        ArrayList<Integer> days = new ArrayList<Integer>();
-        days.add(1);
-      
-        for(int i = 1; i <= n; i++) {
-//        	final int m = days.size();
-        	for(int j = 0; j < days.size(); j++) {
-        		int day = days.get(j);
-        		if(i - day >= forget) {
-        			days.remove(j);
-        			j--;
-        			continue;
-        		}
-        		if(i - day >= delay) {
-        			days.add(i);
-        		}
-        		
-        	}
-        }
-        
-        return (int) (days.size() % (1e9 + 7));
+		int[] DP = new int[n];
+		DP[0] = 1;
+		int mod = (int) (1e9 + 7);
+		for(int i = 0; i < n; i++) {		
+			for(int j = i + delay; j < Math.min(n, i + forget); j++) {
+				DP[j] = (DP[j] + DP[i])% mod;
+			}
+		}
+		int sum = 0;
+		for(int i = n - forget; i < n; i++) {
+			sum = (sum + DP[i]) % mod;
+		}
+	    return sum;
     }
 	
 	public static int peopleAwareOfSecret(int n, int delay, int forget) {
