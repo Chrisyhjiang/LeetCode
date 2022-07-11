@@ -2,63 +2,38 @@
 public class MovePieces {
 	
 	public static void main (String[] args) {
-		String start = "_L__R__R_";
-		String target = "L______RR";
+		String start = "R__L";
+		String target = "L__R";
 		boolean res = canChange2(start, target);
 		System.out.println(res);
 	}
 	
-	public static boolean canChange(String start, String target) {
-		char[] st = start.toCharArray();
-		char[] ta = target.toCharArray();
-	
-        for(int i = 0; i < start.length(); i++) {
-        	char current = st[i];
-        	char goal = ta[i];
-        	if(current == goal) {
-        		continue;
-        	}else {
-        		if(current == '_') {
-        			// search right if L search left if R
-        			if(goal == 'L') {
-        				for(int j = i; j < st.length; j++) {
-        					if(st[j] == 'R') {
-        						return false;
-        					}else if (st[j] == 'L') {
-        						st[i] = 'L';
-        						st[j] = '_';
-        						break;
-        					}
-        				}
-        				continue;
-        			}else {
-        				return false;
-        			}
-        		}else if (current == 'L') {
-        			return false;
-        		}else {
-        			if(goal == '_') {
-        				for(int j = i; j < st.length; j++) {
-        					if(st[j] == 'L') {
-        						return false;
-        					}else if (st[j] == '_') {
-        						s
-        					}
-        				}
-        			}else {
-        				return false;
-        			}
-        		}
-        	}
-        	
+	public boolean canChange(String s, String e) {
+        int left = 0, right = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char a = s.charAt(i), b = e.charAt(i);
+            if (a == 'L') {
+                left++;
+            } else if (a == 'R') {
+                right++;
+            }
+            
+            if (b == 'L') {
+                left--;
+            } else if (b == 'R') {
+                right--;
+            }
+            if (right < 0 || (left != 0 && right != 0))  return false;
         }
-		return true;
-		
+        return left == 0 && right == 0;
     }
 	public static boolean canChange2(String start, String target) {
+		if(start.equals(target)) {
+			return true;
+		}
 		char[] dest = target.toCharArray();
 		char[] src = start.toCharArray();
-		
+
 		int ldest = 0;
 		int lsrc = 0;
 		int rdest = 0;
@@ -128,8 +103,6 @@ public class MovePieces {
 				}
 			}
 			return true;
-		}
-		
-		
+		} 	
 	}
 }
