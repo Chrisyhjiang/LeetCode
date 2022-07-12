@@ -1,5 +1,4 @@
-
-
+// https://leetcode.com/problems/sort-list/submissions/
 public class sortList {
 	public class ListNode {
 		int val;

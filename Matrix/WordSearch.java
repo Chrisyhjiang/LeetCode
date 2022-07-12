@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
+// https://leetcode.com/problems/word-search/
 import java.util.Arrays;
 
 public class WordSearch {

@@ -1,4 +1,4 @@
-
+// https://leetcode.com/problems/unique-paths-ii/
 public class UniquePath2 {
 
 	public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class UniquePath2 {
         }
         return cache[m - 1][n - 1];        
      }
-	public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+	public int uniquePathsWithObstacles2(int[][] obstacleGrid) {
         if(obstacleGrid[0][0] == 1) {
         	return 0;
         }else {
