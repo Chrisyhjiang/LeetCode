@@ -1,3 +1,4 @@
+// https://leetcode.com/contest/weekly-contest-300/problems/number-of-people-aware-of-a-secret/
 import java.util.*;
 public class peopleAware {
 	

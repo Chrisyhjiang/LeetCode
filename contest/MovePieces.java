@@ -2,13 +2,13 @@
 public class MovePieces {
 	
 	public static void main (String[] args) {
-		String start = "R__L";
-		String target = "L__R";
-		boolean res = canChange2(start, target);
+		String start = "R_L_";
+		String target = "__LR";
+		boolean res = canChange(start, target);
 		System.out.println(res);
 	}
 	
-	public boolean canChange(String s, String e) {
+	public static boolean canChange(String s, String e) {
         int left = 0, right = 0;
         for (int i = 0; i < s.length(); ++i) {
             char a = s.charAt(i), b = e.charAt(i);
