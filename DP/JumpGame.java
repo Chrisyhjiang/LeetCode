@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class JumpGame {
 	static int[] DP; 
 	public static void main(String[] args) {
-		int[] arr = {2,5,0,0};
-		System.out.println(canJump3(arr));
+		int[] arr = {2,3,0,1,4};
+		System.out.println(canJump4(arr));
 	}
 	
 	public static boolean canJump(int[] nums) {
@@ -52,5 +52,24 @@ public class JumpGame {
 			}
 		}
 		return lastGoodIndex == 0;
+	}
+	
+	public static int canJump4(int[] nums) {
+		int[] DP = new int[nums.length];
+		for(int i = DP.length - 2; i  >= 0; i--) {
+			int steps = nums[i];
+			int min = Integer.MAX_VALUE;
+			for(int j = 1; j <= steps; j++) {
+				if(i + j < nums.length) {
+					min = Math.min(min, DP[i + j]);
+				}
+			}
+			DP[i] = min;
+			if(min != Integer.MAX_VALUE) {
+				DP[i] += 1;
+			}
+			
+		}
+		return DP[0];
 	}
 }
