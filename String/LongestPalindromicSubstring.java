@@ -95,8 +95,49 @@ public class LongestPalindromicSubstring {
     }
 	
 	public static void main(String[] args) {
-		String res = longestPalindrome("aaaaa");
+		String res = longest("cbbd");
 		System.out.println(res);
 	}
 
+	
+	public static String longest(String s) {
+		int max = Integer.MIN_VALUE;
+		String maxString = "";
+		for(int i = 0; i < s.length(); i++) {
+			int left = i;
+			int right = i;
+			while(left >= 0 && right <s.length()) {
+				if(s.charAt(right) == s.charAt(left)) {
+					if(right - left + 1 > max) {
+						max = right - left + 1;
+						maxString = s.substring(left, right + 1);
+					}
+				}else {
+					break;
+				}
+				right++;
+				left--;
+			}
+		}
+		
+		for(int i = 0; i < s.length() - 1; i++) {
+			int left = i;
+			int right = i + 1;
+			while(left >= 0 && right <s.length()) {
+				if(s.charAt(right) == s.charAt(left)) {
+					if(right - left + 1 > max) {
+						max = right - left + 1;
+						maxString = s.substring(left, right + 1);
+					}
+				}else {
+					break;
+				}
+				right++;
+				left--;
+			}
+			
+		}
+		return maxString;
+	}
+	
 }
