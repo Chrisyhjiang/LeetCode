@@ -1,8 +1,8 @@
-import java.util.HashMap;
+
 
 // https://leetcode.com/problems/powx-n/
 public class pow {
-	static HashMap<Integer, Double> DP;
+	
 	public static void main(String[] args) {
 		double d = myPow2(2, 10);
 		System.out.println(d);
