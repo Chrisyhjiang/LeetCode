@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.*;
 
 // https://leetcode.com/problems/super-ugly-number/
