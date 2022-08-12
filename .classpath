@@ -20,5 +20,6 @@
 	<classpathentry kind="src" path="contest"/>
 	<classpathentry kind="src" path="Backtracking"/>
 	<classpathentry kind="src" path="quickselect"/>
+	<classpathentry kind="src" path="BFS"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
