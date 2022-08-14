@@ -34,7 +34,7 @@ public class highEdge {
 		return maxIndex;
     }
 	public static int edgeScore2(int[] edges) {
-		int max = Integer.MIN_VALUE;
+		long max = Long.MIN_VALUE;
 		int maxIndex = -1;
 		int[] nums = new int[100001];
 		for(int i = 0; i < edges.length; i++) {
