@@ -22,5 +22,6 @@
 	<classpathentry kind="src" path="quickselect"/>
 	<classpathentry kind="src" path="BFS"/>
 	<classpathentry kind="src" path="Greedy"/>
+	<classpathentry kind="src" path="Graph"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
