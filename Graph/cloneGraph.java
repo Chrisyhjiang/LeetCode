@@ -30,7 +30,8 @@ public class cloneGraph {
 		if(visited.containsKey(cur)) {
 			return visited.get(cur);
 		}else {
-			Node cloned = new Node(cur.val, new ArrayList<Node>());
+			ArrayList<Node> ls = new ArrayList<Node>();
+			Node cloned = new Node(cur.val, ls);
 			visited.put(cur, cloned);
 			for(Node n: cur.neighbors) {
 				cloned.neighbors.add(traverse(n, visited));
