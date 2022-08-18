@@ -1,5 +1,3 @@
-package LeetCode.Array;
-
 public class MostWater {
 	public static int maxArea(int[] height) {
 		int max = 0;
