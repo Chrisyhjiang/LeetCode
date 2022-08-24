@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/search-in-rotated-sorted-array/submissions/
 import java.util.*;
 
-public class SearchRotatedSortedArray {
+public class searchInRotatedArray {
 	public static int search(int[] nums, int target) {
 		// search for the minimum of the array then do binary search on both the left and right
 		int min = searchForMin(nums);
