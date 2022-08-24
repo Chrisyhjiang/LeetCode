@@ -13,7 +13,7 @@ public class reverseLinkedListII {
 		ListNode res = reverseBetween(l, 2, 4);
 	}
 
-	public ListNode reverseBetween(ListNode head, int left, int right) {
+	public static ListNode reverseBetween(ListNode head, int left, int right) {
         if (head == null || left == right) {
             return head;
         }
@@ -25,7 +25,7 @@ public class reverseLinkedListII {
             left--;
             right--;
         }
-        ListNode con = prev;
+        ListNode mid = prev;
         ListNode tail = cur;
 
         ListNode temp = null;
@@ -37,8 +37,8 @@ public class reverseLinkedListII {
             right--;
         }
 
-        if (con != null) {
-            con.next = prev;
+        if (mid != null) {
+            mid.next = prev;
         }else {
             head = prev;
         }
