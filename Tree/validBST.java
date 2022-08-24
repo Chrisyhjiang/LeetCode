@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/validate-binary-search-tree/
 import java.util.*;
 public class validBST {
 	static LinkedList<Integer> ls;
