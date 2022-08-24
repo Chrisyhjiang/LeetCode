@@ -1,5 +1,6 @@
+// https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 import java.util.*;
-public class searchInRotatedArray {
+public class searchInRotatedArrayII {
 
 	public static void main(String[] args) {
 		int[] nums = {3,1,2,2,2};
