@@ -1,4 +1,3 @@
-package LeetCode.Array;
 import java.util.*;
 public class Sum3 {
 	
