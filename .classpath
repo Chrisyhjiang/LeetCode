@@ -24,5 +24,6 @@
 	<classpathentry kind="src" path="Greedy"/>
 	<classpathentry kind="src" path="Graph"/>
 	<classpathentry kind="src" path="Heap"/>
+	<classpathentry kind="src" path="Trie"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
