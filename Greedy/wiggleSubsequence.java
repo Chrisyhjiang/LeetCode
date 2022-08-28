@@ -2,50 +2,36 @@
 public class wiggleSubsequence {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int[] nums = {1, 17, 16, 10, 12, 11, 13, 5};
+		int ans = wiggleMaxLength(nums);
+		System.out.println(ans);
 	}
 	
-	public int wiggleMaxLength(int[] nums) {
-		if(nums.length == 1) {
-			return 1;
-		}else if(nums.length == 2) {
-			if(nums[1] != nums[0]) {
-				return 2;
-			}else {
-				return 1;
-			}
+	public static int wiggleMaxLength(int[] nums) {
+		if (nums.length < 2) {
+			return nums.length;
 		}
-		
-		int count = 0;
-		int cur = 1;
-		while(cur < nums.length && nums[cur] == nums[cur -1]) {
-			cur++;
-		}
-		if(cur == nums.length) {
-			return 1;
-		}else {
-			count = 1;
-			boolean bigger = !(nums[cur] > nums[cur - 1]);
-			while(cur < nums.length) {
-				cur = findIndex(bigger, cur, nums);
-				bigger = !bigger;
-				
-				count++;
-			}
-			return count;
-		}
+            
+        int prevdiff = nums[1] - nums[0];
+        int count;
+        if(prevdiff != 0) {
+        	count = 2;
+        }else {
+        	count = 1;
+        }
+        // find a wiggle as long as there is a wiggle, we can increment one to the sequence. 
+        // between when prediff is updated 2 times, indicates that there exists at least once time
+        // where there is a wiggle, the actual position does not really matter?
+        
+        for (int i = 2; i < nums.length; i++) {
+            int diff = nums[i] - nums[i - 1];
+            if ((diff > 0 && prevdiff <= 0) || (diff < 0 && prevdiff >= 0)) {
+                count++;
+                prevdiff = diff;
+            }
+        }
+        return count;
     }
 	
-	public int findIndex(boolean bigger, int curIndex, int[] nums) {
-		int index = curIndex + 1;
-		if(bigger) {
-			int max = nums[curIndex];
-			while()
-		}else {
-			
-		}
-		
-		return index;
-	}
+	
 }
