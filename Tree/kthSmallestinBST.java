@@ -1,7 +1,8 @@
 // https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 import java.util.*;
 public class kthSmallestinBST {
-	static List<Integer> ls = new ArrayList<Integer>();
+	static int ans;
+    static int m;
 	class TreeNode {
 		int val;
 		TreeNode left;
@@ -19,18 +20,20 @@ public class kthSmallestinBST {
 	}
 	
 	public static int kthSmallest(TreeNode root, int k) {
-		DFSIn(root, k);
-		return ls.get(ls.size()-1);
+        m = k;
+		DFSIn(root);
+		return ans;
     }
 	
-	public static void DFSIn(TreeNode root, int k) {
+	public static void DFSIn(TreeNode root) {
 		if(root != null) {
-			if(ls.size() < k) {
-				DFSIn(root.left, k);
-				ls.add(root.val);
-				DFSIn(root.right, k);
-			}else {
-				return;
+			if(m > 0) {
+				DFSIn(root.left);
+                if(m > 0){
+                    ans = root.val;
+                    m--;
+                }
+				DFSIn(root.right);
 			}
 		}
 	}
