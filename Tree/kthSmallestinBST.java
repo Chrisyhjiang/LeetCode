@@ -24,15 +24,14 @@ public class kthSmallestinBST {
     }
 	
 	public static void DFSIn(TreeNode root, int k) {
-		if(root.left != null) {
-			DFSIn(root.left, k);
-		}
-		ls.add(root.val);
-		if(ls.size() == k) {
-			return;
-		}
-		if(root.right != null) {
-			DFSIn(root.right, k);
+		if(root != null) {
+			if(ls.size() < k) {
+				DFSIn(root.left, k);
+				ls.add(root.val);
+				DFSIn(root.right, k);
+			}else {
+				return;
+			}
 		}
 	}
 }
