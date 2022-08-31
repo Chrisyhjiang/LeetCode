@@ -20,6 +20,8 @@ public class kthSmallestinBST {
 	}
 	
 	public static int kthSmallest(TreeNode root, int k) {
+		// use static variable and decrement static variable to save time. 
+		// if int is used in the function, copy by value will result in error.  
         m = k;
 		DFSIn(root);
 		return ans;
@@ -29,6 +31,7 @@ public class kthSmallestinBST {
 		if(root != null) {
 			if(m > 0) {
 				DFSIn(root.left);
+				// check as the m may have changed after the previous recursive call. 
                 if(m > 0){
                     ans = root.val;
                     m--;
