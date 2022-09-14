@@ -13,7 +13,7 @@ public class divideIntervals {
 			if(this.start > o.start) {
 				return 1;
 			}else if(this.start == o.start) {
-				return this.end - this.end;
+				return this.end - o.end;
 			}else {
 				return -1;
 			}
@@ -42,11 +42,10 @@ public class divideIntervals {
 			// new group
 			if(groups[i].start <= minSoFar) {
 				count++;
-				pq.add(groups[i].end);
 			}else {
 				pq.poll();
-				pq.add(groups[i].end);
 			}
+			pq.add(groups[i].end);
 		}
 		return count;
     }
