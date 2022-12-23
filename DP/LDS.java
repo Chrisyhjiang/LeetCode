@@ -1,5 +1,5 @@
 import java.util.*;
-public class largestDivisibleSubset {
+public class LDS {
 
 	public static void main(String[] args) {
 		int[] arr = {4,8,10,240};
@@ -40,7 +40,6 @@ public class largestDivisibleSubset {
 				if(cur == 0) {
 					break;
 				}
-				
 				if(curTail % nums[i] == 0 && cur == DP[i]) {
 					ls.add(0, nums[i]);
 					curTail = nums[i];
