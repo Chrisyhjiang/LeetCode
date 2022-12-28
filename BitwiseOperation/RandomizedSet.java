@@ -43,8 +43,6 @@ public class RandomizedSet {
 		System.out.println(rs.insert(2));
 		System.out.println(rs.remove(1));
 		System.out.println(rs.getRandom());
-		
-
 	}
 
 }
