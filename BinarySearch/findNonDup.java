@@ -12,9 +12,12 @@ public class findNonDup {
 		int start = 0;
 		int n = nums.length;
 		int end = n - 1;
-		
-		// if mid even, then its previous should be different
-		// if mid is odd, then its next should be different. 
+		/*
+		 * starting array is always odd length
+		 * therefore if we remove a pair in the middle of nums
+		 * we can conlude that the part with the odd length 
+		 * would be where the non duplicate exists
+		 */
 		while(start < end) {
 			int mid = (start + end) / 2;
 			int l = nums[mid - 1];
