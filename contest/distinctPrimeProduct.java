@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/distinct-prime-factors-of-product-of-array/
 import java.util.*;
 public class distinctPrimeProduct {
 	
