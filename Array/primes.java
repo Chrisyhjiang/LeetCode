@@ -14,7 +14,7 @@ public class primes {
 		boolean[] arr = new boolean[n];
 		Arrays.fill(arr, true);
 		arr[1] = false;
-		arr[2] = true;
+		
 		for(int i = 4; i < n; i+=2) {
 			arr[i] = false;
 		}
@@ -28,6 +28,7 @@ public class primes {
 				arr[j] = false;
 			}
 		}
+		// finds total
 		for(int i = 1; i < n; i++) {
 			if(arr[i]) {
 				total++;
