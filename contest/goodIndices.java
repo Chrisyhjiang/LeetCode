@@ -23,9 +23,9 @@ public class goodIndices {
         }
         for(int i = n-2; i >= 0; i--) {
         	if(nums[i] <= nums[i+1]) {
-        		nonIncrease[i] = nonIncrease[i+1] + 1;
+        		nonDecrease[i] = nonDecrease[i+1] + 1;
         	}else {
-        		nonIncrease[i] = 1;
+        		nonDecrease[i] = 1;
         	}
         }
         
