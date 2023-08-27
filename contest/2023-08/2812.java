@@ -52,9 +52,9 @@ class Solution {
         return end - 1;
 
     }
-    // DFS to check if the path is viable
-    public static boolean isPossible(List<List<Integer>> grid, 
-                                boolean[][] visited, int mid, int i, int j, int n) {
+    // DFS to check if the safety factor of the path is greater than or equal to mid
+    public static boolean isPossible(List<List<Integer>> grid, boolean[][] visited, 
+                                    int mid, int i, int j, int n) {
         if(i < 0 || j < 0 ||i >= n || j >= n || visited[i][j] || grid.get(i).get(j) < mid) {
             return false;
         }
