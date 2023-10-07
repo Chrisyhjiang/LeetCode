@@ -1,23 +1,33 @@
 class Solution {
     public int countCompleteSubarrays(int[] nums) {
+        int n = nums.length;
         HashSet<Integer> hs = new HashSet<Integer>();
         for (int e: nums) {
             hs.add(e);
         }
-        // temporary brute force solution. 
         int target = hs.size();
-        int cnt = 0;
-        for (int i = 0; i < nums.length; i++) {
-            HashMap<Integer, Integer> hm = new HashMap<Integer, Integer> ();
-            for (int j = i; j < nums.length; j++) {
-                int key = nums[j];
-                hm.put(key, hm.getOrDefault(key, 0) + 1);
-                if (hm.size() == target) {
-                    cnt++;
+        int res = 0;
+        int right = 0;
+        int window = 0;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        // sliding window left and right pointer
+        for (int left = 0; left < n; left++) {
+            while (right < n && window < target) {
+                hm.put(nums[right], hm.getOrDefault(nums[right], 0) + 1);
+                if (hm.get(nums[right]) == 1) {
+                    window++;
                 }
+                right++;
+            }
+            // update answer when correect window size. 
+            if (window == target) {
+                res += (n - right + 1);
+            }
+            hm.put(nums[left], hm.get(nums[left]) - 1);
+            if (hm.get(nums[left]) == 0) {
+                window--;
             }
         }
-        return cnt;
-        
+        return res;
     }
 }
