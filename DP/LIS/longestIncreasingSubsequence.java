@@ -1,3 +1,4 @@
+package LIS;
 // https://leetcode.com/problems/longest-increasing-subsequence/
 public class longestIncreasingSubsequence {
 
